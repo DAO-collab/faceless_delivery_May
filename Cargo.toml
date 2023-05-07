@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "src/faceless_dfinity_backend",
+    "src/aibe",
+]
+
+[patch]
+[patch.crates-io]
+bn = {package = "zeropool-bn", path = "src/bn"}

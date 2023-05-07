@@ -1,0 +1,37 @@
+type WithdrawReceipt = 
+ variant {
+   Err: WithdrawErr;
+   Ok: nat;
+ };
+type WithdrawErr = 
+ variant {
+   BalanceLow;
+   TransferFailure;
+ };
+type Token = principal;
+type DepositReceipt = 
+ variant {
+   Err: DepositErr;
+   Ok: nat;
+ };
+type DepositErr = 
+ variant {
+   BalanceLow;
+   TransferFailure;
+ };
+type Balance = 
+ record {
+   amount: nat;
+   owner: principal;
+   token: Token;
+ };
+service : (ledger: opt principal) -> {
+    "greet": (text) -> (text) query;
+   clear: () -> () oneway;
+   deposit: (nat) -> (DepositReceipt);
+   getBalance: () -> (nat) query;
+   getDepositAddress: () -> (blob);
+   whoami: () -> (principal) query;
+   withdraw: (nat, principal) -> (WithdrawReceipt);
+   ledger: () -> (opt principal) query;
+ };

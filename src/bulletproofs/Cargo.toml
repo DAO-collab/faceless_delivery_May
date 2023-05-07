@@ -1,0 +1,68 @@
+[package]
+name = "bulletproofs"
+version = "0.3.0"
+authors = ["Zico Huang <zhicong303@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+categories = ["cryptography"]
+keywords = ["cryptography", "crypto", "ristretto", "zero-knowledge", "bulletproofs"]
+description = "A pure-Rust implementation of Bulletproofs"
+edition = "2021"
+
+[dependencies]
+subtle = { version = "2.4.1", default-features = false }
+sha3 = { version = "0.9.1", default-features = false }
+rand_chacha = {version = "0.3", default-features = false } # used as a seedable rng in GeneratorsxChain
+digest = { version = "0.9.0", default-features = false }
+rand = {version = "0.8.5", default-features = false}
+byteorder = { version = "1", default-features = false }
+serde = { version = "1", default-features = false, features = ["alloc"] }
+serde_derive = { version = "1", default-features = false }
+thiserror = { version = "1", optional = true }
+merlin = { version = "3", default-features = false }
+clear_on_drop = { version = "0.2", default-features = false, features = ['no_cc'] }
+group = {version = "0.12.0", default-features = false}
+hex = { version = "0.4.3", default-features = false }
+getrandom = {version = "0.2.6", default-features = false, features = ['js']}
+bn = { package = "zeropool-bn", version = "0.5.11", default-features = false, features = ["borsh"] }
+borsh = { version = '0.9.1', default-features = false }
+sha2 = { version = "0.10.2", default-features = false }
+
+
+[dev-dependencies]
+criterion = "0.3"
+bincode = "1"
+rand_chacha = "0.3"
+
+[features]
+default = ["std"]
+yoloproofs = []
+std = [
+    "thiserror", 
+    "rand/std", 
+    "rand/std_rng", 
+    "rand_chacha/std", 
+    "hex/std"]
+nightly = ["subtle/nightly", "clear_on_drop/nightly"]
+docs = ["nightly"]
+
+[[test]]
+name = "range_proof"
+
+[[test]]
+name = "r1cs"
+required-features = ["yoloproofs"]
+
+[[bench]]
+name = "range_proof"
+harness = false
+
+[[bench]]
+name = "generators"
+harness = false
+
+[[bench]]
+name = "r1cs"
+harness = false
+required-features = ["yoloproofs"]
+

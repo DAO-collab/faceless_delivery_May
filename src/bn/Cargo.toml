@@ -1,0 +1,28 @@
+[package]
+name = "zeropool-bn"
+version = "0.5.12"
+authors = ["Zico Huang <zhicong303@gmail.com>", "Sean Bowe <ewillbefull@gmail.com>"]
+description = "Pairing cryptography with the Barreto-Naehrig curve"
+keywords = ["pairing","crypto","cryptography"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[features]
+default = ["borsh", "std"]
+std = ["borsh/std"]
+
+[[bench]]
+name = "api"
+
+[dependencies]
+rand = { version = "0.8.3", default-features = false}
+byteorder = { version = "1.0", features = ["i128"], default-features = false }
+crunchy = "0.2.1"
+lazy_static = { version = "1.4.0", features = ["spin_no_std"] }
+rustc-hex = { version = "2", default-features = false }
+borsh = {version = "0.9", default-features = false, optional = true}
+
+[dev-dependencies]
+seq-macro = "0.1.5"
+rand = { version = "0.8.3" }

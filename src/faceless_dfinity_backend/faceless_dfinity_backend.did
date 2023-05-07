@@ -1,0 +1,44 @@
+type FacelessReceipt = 
+ variant {
+   Err: FacelessErr;
+   Ok: nat;
+ };
+type FacelessErr = 
+ variant {
+   InvalidAccount;
+   BalanceLow;
+   TransferFailure;
+ };
+type Token = principal;
+type Balance = 
+ record {
+   amount: nat;
+   owner: principal;
+   token: Token;
+ };
+ type BalanceReceipt =
+  variant {
+    Err: FacelessErr;
+    Ok: text;
+  };
+service : (ledger: opt principal) -> {
+    "greet": (text) -> (text) query;
+   clear: () -> () oneway;
+   register: (text) -> () oneway;
+   deposit: (text, nat) -> (FacelessReceipt);
+   getBalance: (text) -> (text) query;
+   getDepositAddress: () -> (blob);
+   whoami: () -> (principal) query;
+   withdraw: (text, nat, principal) -> (FacelessReceipt);
+   transfer: (text, text, text, text) -> (FacelessReceipt);
+   ledger: () -> (opt principal) query;
+   verifyWithdraw: (text, text) -> (bool) query;
+   verifyTransfer: (text, text) -> (bool) query;
+
+   generate_key: () -> (text, text) query;
+   pk_id: (text, text) -> (text) query;
+   encrypt_with_randomness: (int32, text, text, text) -> (text) query;
+   random_scalar: () -> (text) query;
+   extract: (text, text) -> (text) query;
+   decrypt: (text, text, text, int32) -> (int32) query;
+ };

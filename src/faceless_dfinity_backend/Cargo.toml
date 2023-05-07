@@ -1,0 +1,23 @@
+[package]
+name = "faceless_dfinity_backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+candid = "0.8.2"
+ic-cdk = "0.6.0"
+ic-cdk-macros = "0.6.0"
+ic-ledger-types = "0.4.2"
+num-bigint = "0.4"
+num-traits = "0.2.14"
+aibe = { path = "../aibe", default-features = false }
+bulletproofs = { path = "../bulletproofs", default-features = false }
+base64 = { default-features = false, version = '0.13.0', features=["alloc"] }
+borsh = { version = '0.9.1', default-features = false }
+rand = {version = "0.8.5", default-features = false}
+rand_chacha = { version = "0.3.1", default-features = false }

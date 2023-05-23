@@ -1,0 +1,15 @@
+html,
+body {
+  .n-upload {
+    z-index: 1;
+  }
+
+  .cropper-face,
+  .cropper-view-box {
+    border-radius: 50%;
+  }
+
+  .n-modal-mask {
+    backdrop-filter: blur(10px);
+  }
+}

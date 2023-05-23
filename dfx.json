@@ -8,16 +8,15 @@
         "ledger"
       ]
     },
-    "faceless_dfinity_frontend": {
+    "faceless_frontend": {
       "dependencies": [
         "faceless_dfinity_backend"
       ],
       "frontend": {
-        "entrypoint": "src/faceless_dfinity_frontend/src/index.html"
+        "entrypoint": "src/faceless_frontend/index.html"
       },
       "source": [
-        "src/faceless_dfinity_frontend/assets",
-        "dist/faceless_dfinity_frontend/"
+        "dist/"
       ],
       "type": "assets"
     },

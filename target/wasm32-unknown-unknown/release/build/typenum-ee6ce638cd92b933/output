@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/hlin/Downloads/ICP_delivery-master/target/wasm32-unknown-unknown/release/build/typenum-ee6ce638cd92b933/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/hlin/Downloads/ICP_delivery-master/target/wasm32-unknown-unknown/release/build/typenum-ee6ce638cd92b933/out/op.rs

@@ -42,12 +42,12 @@ sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
 ## Unit tests
 
 ```sh
-# Test the anonymous identity-based encryption
 cd aibe
+
+# Test the anonymous identity-based encryption
 cargo test test_bf_ibe -- --show-output
 
 # Test the withdrawal proof generation and verification
-cd aibe
 cargo test test_zk_withdraw -- --show-output
 
 # Test the transfer proof generation and verification
@@ -74,3 +74,30 @@ Please use the [test_scripts](./test_scripts/), where you can also see the backe
 ./test_scripts/encrypted_transfer.sh
 ```
 
+## Using the Faceless Frontend
+
+```bash
+# If you don't have Node.JS, you have to install it, like:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+nvm install node
+
+# At this Faceless project root
+# Install latest yarn
+npm i -g yarn@latest
+yarn set version stable
+
+# build the faceless wasm wrapper
+cd src/faceless_frontend
+cargo install --force --version 0.10.3 wasm-pack
+wasm-pack build faceless-wasm-wrapper --target web
+cd ../../
+
+yarn
+yarn build
+
+# Deploy the canisters
+./test_scripts/deploy.sh
+
+# View the website
+yarn dev
+```

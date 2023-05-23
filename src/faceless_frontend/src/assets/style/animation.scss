@@ -1,0 +1,235 @@
+@keyframes opacityIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.view-enter-active {
+  animation-duration: 0.35s;
+  animation-name: opacityIn;
+}
+
+.view-leave-active {
+  animation-duration: 0.35s;
+  animation-name: opacityOut;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.main-enter-active {
+  animation-duration: 0.3s;
+  animation-name: scaleIn;
+}
+
+.main-leave-active {
+  animation-duration: 0.3s;
+  animation-name: scaleOut;
+}
+
+@keyframes translateYIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes translateYOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+.app-enter-active {
+  animation-duration: 0.3s;
+  animation-name: translateYIn;
+}
+
+.app-leave-active {
+  animation-duration: 0.3s;
+  animation-name: translateYOut;
+}
+
+@keyframes translateXLeftIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes translateXLeftOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+.phone-enter-active,
+.wallet-enter-active {
+  animation-duration: 0.3s;
+  animation-name: translateXLeftIn;
+}
+
+.phone-leave-active,
+.wallet-leave-active {
+  animation-duration: 0.3s;
+  animation-name: translateXLeftOut;
+}
+
+@keyframes translateXRightIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes translateXRightOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+.transfer-enter-active {
+  animation-duration: 0.3s;
+  animation-name: translateXRightIn;
+}
+
+.transfer-leave-active {
+  animation-duration: 0.3s;
+  animation-name: translateXRightOut;
+}
+
+@keyframes translateXRightSmallIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes translateXRightSmallOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+.coin-enter-active {
+  animation-duration: 0.3s;
+  animation-name: translateXRightSmallIn;
+}
+
+.coin-leave-active {
+  animation-duration: 0.3s;
+  animation-name: translateXRightSmallOut;
+}
+
+@keyframes translateYSmallIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes translateYSmallOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+.button-enter-active {
+  animation-duration: 0.2s;
+  animation-name: translateYSmallIn;
+}
+
+.button-leave-active {
+  animation-duration: 0.2s;
+  animation-name: translateYSmallOut;
+}

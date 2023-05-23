@@ -28,6 +28,9 @@ service : (ledger: opt principal) -> {
    deposit: (text, nat) -> (FacelessReceipt);
    getBalance: (text) -> (text) query;
    getDepositAddress: () -> (blob);
+   getAnonymousDepositAddress: () -> (blob);
+   getAgentDepositAddress: () -> (blob);
+   getDelegateBalance: (principal) -> (int64);
    whoami: () -> (principal) query;
    withdraw: (text, nat, principal) -> (FacelessReceipt);
    transfer: (text, text, text, text) -> (FacelessReceipt);

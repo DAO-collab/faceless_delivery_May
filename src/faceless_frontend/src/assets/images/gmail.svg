@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="32px" viewBox="0 0 44 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Gmail_icon_(2020)</title>
+    <g id="页面-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HRI-Wallets-添加新账户" transform="translate(-742.000000, -443.000000)" fill-rule="nonzero">
+            <g id="编组-2" transform="translate(548.000000, 419.000000)">
+                <g id="Gmail_icon_(2020)" transform="translate(194.000000, 24.000000)">
+                    <path d="M3,32 L10,32 L10,15.5194017 L0,8.24854956 L0,29.0916591 C0,30.7009411 1.345,32 3,32" id="路径" fill="#E5E5E5"></path>
+                    <path d="M34,32 L41,32 C42.66,32 44,30.6960938 44,29.0916591 L44,8.24854956 L34,15.5194017" id="路径" fill="#E5E5E5"></path>
+                    <path d="M34,2.9165913 L34,15.5194017 L44,8.24854956 L44,4.37076173 C44,0.774113524 39.765,-1.27626679 36.8,0.88075269" id="路径" fill="#FFFFFF"></path>
+                    <polyline id="路径" fill="#D3D3D3" points="10 15.5194017 10 2.9165913 22 11.6416139 34 2.9165913 34 15.5194017 22 24.2444243"></polyline>
+                    <path d="M0,4.37076173 L0,8.24854956 L10,15.5194017 L10,2.9165913 L7.2,0.88075269 C4.23,-1.27626679 0,0.774113524 0,4.37076173" id="路径" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

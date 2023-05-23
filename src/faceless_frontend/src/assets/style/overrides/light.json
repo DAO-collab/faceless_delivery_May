@@ -1,0 +1,19 @@
+{
+  "common": {
+    "heightMedium": "50px",
+    "borderRadius": "10px",
+    "primaryColor": "#0085FF",
+    "inputColor": "#78788021",
+    "primaryColorSuppl": "#0085FFFF",
+    "primaryColorHover": "#0085FFFF",
+    "primaryColorPressed": "#0085FFFF",
+    "fontFamily": "Ubuntu-Regular",
+    "popoverColor": "#27323f"
+  },
+
+  "Tooltip": {
+    "color": "#313b47",
+    "textColor": "#FFFFFF",
+    "padding": "8px 17px"
+  }
+}

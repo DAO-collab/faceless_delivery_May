@@ -1,0 +1,14 @@
+{
+  "limit": 700000,
+  "defaultChainName": "ropsten",
+  "defaultFortmaticKey": "pk_test_DA1AB1FA469B5627",
+
+  "walletChains": ["ethereum"],
+
+  "tooltip": "Please connect the wallet first.",
+
+  "faceless": {
+    "http": "/staging",
+    "siteKey": "6LdC6tsgAAAAAHVC3mF9LX4mOLcO433o-vMvDVIF"
+  }
+}

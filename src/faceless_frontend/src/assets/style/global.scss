@@ -1,0 +1,26 @@
+html,
+body {
+  // 禁止压缩
+  flex: 0 0 auto;
+  // 默认字体尺寸
+  font-size: 12px;
+  // 全局元素盒模型规则
+  box-sizing: border-box;
+  // 文本内容换行规则
+  word-break: break-word;
+  // 全局字体默认字体样式
+  font-family: "Ubuntu-Regular";
+
+  // 隐藏原生滚动条
+  *::-webkit-scrollbar {
+    width: 0px !important;
+    display: none !important;
+  }
+
+  // 兼容性处理
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    overflow: -moz-scrollbars-none !important;
+  }
+}

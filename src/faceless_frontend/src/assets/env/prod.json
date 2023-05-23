@@ -1,0 +1,14 @@
+{
+  "limit": 700000,
+  "defaultChainName": "mainnet",
+  "defaultFortmaticKey": "pk_live_16DB86C1365211E5",
+
+  "walletChains": ["ethereum"],
+
+  "tooltip": "Please connect the wallet first.",
+
+  "faceless": {
+    "http": "/production",
+    "siteKey": "6Lcsh84gAAAAAOLQ5ns1PnsMTpMHGgcNWJcjyVoy"
+  }
+}

@@ -118,7 +118,7 @@ async fn deposit_icp(caller: Principal, amount: &Nat) -> Result<Nat, FacelessErr
 
     let transfer_args = ic_ledger_types::TransferArgs {
         memo: Memo(0),
-        amount: Tokens::from_e8s(u64_amount),
+        amount: Tokens::from_e8s(u64_amount), 
         fee: Tokens::from_e8s(ICP_FEE),
         // When we call the `transfer` function, the caller is this canister, hence the
         // transfer is from "(canister_id, caller)", which is the `account` variable above.
@@ -173,6 +173,10 @@ async fn withdraw_icp(amount: &Nat, account_id: AccountIdentifier) -> Result<Nat
 
     let transfer_amount = Tokens::from_e8s(u64_amount);
 
+    ic_cdk::println!("Transfering of {} ICP to account {:?}", 
+        transfer_amount,
+        &account_id);
+
     let transfer_args = ic_ledger_types::TransferArgs {
         memo: Memo(0),
         amount: transfer_amount,
@@ -181,10 +185,14 @@ async fn withdraw_icp(amount: &Nat, account_id: AccountIdentifier) -> Result<Nat
         to: account_id,
         created_at_time: None,
     };
-    ic_ledger_types::transfer(ledger_canister_id, transfer_args)
-        .await
-        .map_err(|_| FacelessErr::TransferFailure)
-        .and_then(|v| v.map_err(|_| FacelessErr::TransferFailure))?;
+    // ic_ledger_types::transfer(ledger_canister_id, transfer_args)
+    //     .await
+    //     .map_err(|_| FacelessErr::TransferFailure)
+    //     .and_then(|v| v.map_err(|_| FacelessErr::TransferFailure))?;
+    if let Err(e) = ic_ledger_types::transfer(ledger_canister_id, transfer_args).await {
+        ic_cdk::println!("Transfer error: {:?}", e);
+        return Err(FacelessErr::TransferFailure);
+    }
 
     ic_cdk::println!("Withdrawal of {} ICP to account {:?}", 
         Tokens::from_e8s(u64_amount), 
@@ -272,6 +280,41 @@ pub fn get_deposit_address() -> AccountIdentifier {
     let subaccount = principal_to_subaccount(&caller());
 
     AccountIdentifier::new(&canister_id, &subaccount)
+}
+
+#[update(name = "getAnonymousDepositAddress")]
+#[candid_method(update, rename = "getAnonymousDepositAddress")]
+pub fn get_anonymous_deposit_address() -> AccountIdentifier {
+    let canister_id = ic_cdk::api::id();
+    let subaccount = principal_to_subaccount(&Principal::from_text("2vxsx-fae").unwrap());
+
+    AccountIdentifier::new(&canister_id, &subaccount)
+}
+
+#[update(name = "getAgentDepositAddress")]
+#[candid_method(update, rename = "getAgentDepositAddress")]
+pub fn get_agent_deposit_address() -> AccountIdentifier {
+    let canister_id = ic_cdk::api::id();
+
+    AccountIdentifier::new(&canister_id, &DEFAULT_SUBACCOUNT)
+}
+
+#[update(name = "getDelegateBalance")]
+#[candid_method(update, rename = "getDelegateBalance")]
+pub async fn get_delegate_balance(owner: Principal) -> i64 {
+    let ledger_canister_id = STATE
+        .with(|s| s.borrow().ledger)
+        .unwrap_or(MAINNET_LEDGER_CANISTER_ID);
+    let canister_id = ic_cdk::api::id();
+    let subaccount = principal_to_subaccount(&owner);
+
+    let account = AccountIdentifier::new(&canister_id, &subaccount);
+
+    let balance_args = ic_ledger_types::AccountBalanceArgs { account };
+    let balance = ic_ledger_types::account_balance(ledger_canister_id, balance_args)
+        .await.unwrap();
+
+    return balance.e8s() as i64;
 }
 
 #[query]
